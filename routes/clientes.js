@@ -4,10 +4,10 @@ const connection = require('../config/database');
 
 // Criar um cliente
 router.post('/', (req, res) => {
-  const { nome, email } = req.body;
+  const { nome, email, telefone, endereco } = req.body;
   connection.query(
-    'INSERT INTO clientes (nome, email) VALUES (?, ?)',
-    [nome, email],
+    'INSERT INTO clientes (nome, email, telefone, endereco) VALUES (?, ?, ?, ?)',
+    [nome, email, telefone, endereco],
     (err, result) => {
       if (err) {
         console.error('Erro ao inserir cliente: ', err);
@@ -33,11 +33,16 @@ router.get('/', (req, res) => {
 
 // Editar um cliente
 router.put('/:id', (req, res) => {
-  const { nome, email } = req.body;
+  const { nome, email, telefone, endereco } = req.body;
   const { id } = req.params;
   connection.query(
-    'UPDATE clientes SET nome = ?, email = ? WHERE id_cliente = ?',
-    [nome, email, id],
+    `UPDATE clientes SET
+      nome = ?,
+      email = ?,
+      telefone = ?,
+      endereco = ?
+    WHERE id_cliente = ?`,
+    [nome, email, telefone, endereco, id],
     (err, result) => {
       if (err) {
         console.error('Erro ao editar cliente: ', err);
