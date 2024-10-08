@@ -1,0 +1,25 @@
+### Cadastro de Produtos
+POST http://localhost:3000/produtos
+Content-Type: application/json
+
+{
+    "nome": "Produto 1",
+    "preco": 10.90,
+    "estoque": 100
+}
+
+### Listagem de Produtos
+GET http://localhost:3000/produtos
+
+### Edita um Produto
+PUT http://localhost:3000/produtos/3
+Content-Type: application/json
+
+{
+    "nome": "Produto 3",
+    "preco": 20.90,
+    "estoque": 50
+}
+
+### Exclui um Produto
+DELETE http://localhost:3000/produtos/3

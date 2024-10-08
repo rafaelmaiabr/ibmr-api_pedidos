@@ -1,0 +1,26 @@
+### Cadastro de Pedidos
+POST http://localhost:3000/pedidos
+Content-Type: application/json
+
+{
+    "id_cliente": 2,
+    "id_produto": 3,
+    "data_pedido": "2021-01-01",
+    "quantidade": 10,
+    "valor_total": 109.00
+}
+
+### Listagem de Pedidos
+GET http://localhost:3000/pedidos
+
+### Edita um Pedido
+PUT http://localhost:3000/pedidos/3
+Content-Type: application/json
+
+{
+    "quantidade": 22,
+    "valor_total": 218.00
+}
+
+### Exclui um Pedido
+DELETE http://localhost:3000/pedidos/3

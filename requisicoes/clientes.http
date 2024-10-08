@@ -1,0 +1,27 @@
+### Cadastro de Clientes
+POST http://localhost:3000/clientes
+Content-Type: application/json
+
+{
+    "nome": "Cliente 1",
+    "email": "email1@exemplo.com",
+    "telefone": "999999999",
+    "endereco": "Rua 1, 123"
+}
+
+### Listagem de Clientes
+GET http://localhost:3000/clientes
+
+### Edita um Cliente
+PUT http://localhost:3000/clientes/3
+Content-Type: application/json
+
+{
+    "nome": "Cliente 3",
+    "email": "novoEmail@exemplo.com",
+    "telefone": "888888888",
+    "endereco": "Rua 3 123"
+}
+
+### Exclui um Cliente
+DELETE http://localhost:3000/clientes/3
