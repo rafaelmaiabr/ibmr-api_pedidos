@@ -4,10 +4,12 @@ const connection = require('../config/database');
 
 // Criar um pedido
 router.post('/', (req, res) => {
-  const { id_cliente, id_produto, data_pedido, quantidade, valor_total } = req.body;
+  const { id_cliente, id_produto, quantidade, valor_total } = req.body;
   connection.query(
-    'INSERT INTO pedidos (id_cliente, id_produto, data_pedido, quantidade, valor_total) VALUES (?, ?, ?, ?, ?)',
-    [id_cliente, id_produto, data_pedido, quantidade, valor_total],
+    `INSERT INTO pedidos
+    (id_cliente, id_produto, quantidade, valor_total, data_pedido) VALUES
+    (?, ?, ?, ?, NOW())`,
+    [id_cliente, id_produto, quantidade, valor_total],
     (err, result) => {
       if (err) {
         console.error('Erro ao inserir pedido: ', err);

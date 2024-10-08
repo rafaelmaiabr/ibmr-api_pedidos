@@ -5,7 +5,6 @@ Content-Type: application/json
 {
     "id_cliente": 2,
     "id_produto": 3,
-    "data_pedido": "2021-01-01",
     "quantidade": 10,
     "valor_total": 109.00
 }
