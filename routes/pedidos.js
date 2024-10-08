@@ -33,11 +33,11 @@ router.get('/', (req, res) => {
 
 // Editar um pedido
 router.put('/:id', (req, res) => {
-  const { nome_pedido, preco, estoque } = req.body;
+  const { quantidade, valor_total } = req.body;
   const { id } = req.params;
   connection.query(
-    'UPDATE pedidos SET nome_pedido = ?, preco = ?, estoque = ? WHERE id_pedido = ?',
-    [nome_pedido, preco, estoque, id],
+    'UPDATE pedidos SET quantidade = ?, valor_total = ? WHERE id_pedido = ?',
+    [quantidade, valor_total, id],
     (err, result) => {
       if (err) {
         console.error('Erro ao editar pedido: ', err);
